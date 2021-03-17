@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import ContactManager from './App';
 import reportWebVitals from './reportWebVitals';
+
+const contacts = ["James Smith", "Thomas Anderson", "Bruce Wayne"];
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ContactManager data={contacts} />
   </React.StrictMode>,
   document.getElementById('root')
 );

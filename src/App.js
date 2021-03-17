@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import AddPersonForm from './AddPersonForm.jsx'
+import PeopleList from './PeopleList.jsx'
 
-function App() {
+
+
+function ContactManager(props) {
+  const [contacts, setContacts] = useState(props.data)
+
+  function addPerson(name) {
+    setContacts([...contacts, name])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AddPersonForm handleSubmitParent={addPerson} />
+      <PeopleList data={contacts} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default ContactManager
